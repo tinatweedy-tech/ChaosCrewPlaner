@@ -14,99 +14,101 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #1a1a2e;
-            color: #e0e0e0;
+            background: #fdf6ee;
+            color: #4a3728;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #16213e, #0f3460);
-            padding: 12px 16px;
+            background: linear-gradient(135deg, #8B5E3C, #A0522D);
+            padding: 14px 16px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(139,94,60,0.3);
         }
 
         .header h1 {
-            font-size: 1.2em;
-            color: #e94560;
+            font-size: 1.3em;
+            color: #FFE4B5;
         }
 
         .header .subtitle {
-            font-size: 0.7em;
-            color: #888;
+            font-size: 0.75em;
+            color: rgba(255,228,181,0.7);
             margin-top: 2px;
         }
 
         .status-dot {
             display: inline-block;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             margin-left: 6px;
             vertical-align: middle;
         }
 
-        .status-online { background: #4CAF50; }
-        .status-offline { background: #f44336; }
+        .status-online { background: #66BB6A; }
+        .status-offline { background: #ef5350; }
 
         .tabs {
             display: flex;
-            background: #16213e;
-            border-bottom: 2px solid #0f3460;
+            background: #8B5E3C;
+            border-bottom: 2px solid #A0522D;
             position: sticky;
-            top: 58px;
+            top: 62px;
             z-index: 99;
         }
 
         .tab {
             flex: 1;
-            padding: 10px 4px;
+            padding: 12px 4px;
             text-align: center;
-            font-size: 0.8em;
+            font-size: 0.9em;
             font-weight: 600;
-            color: #666;
+            color: rgba(255,228,181,0.5);
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
         }
 
         .tab.active {
-            color: #e94560;
-            border-bottom-color: #e94560;
+            color: #FFE4B5;
+            border-bottom-color: #FFE4B5;
         }
 
         .week-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 16px;
-            background: #16213e;
+            padding: 14px 16px;
+            background: #f5e6d3;
+            border-bottom: 1px solid #e0cdb8;
         }
 
         .week-nav button {
-            background: rgba(233,69,96,0.2);
-            border: 1px solid #e94560;
-            color: #e94560;
-            padding: 8px 14px;
-            border-radius: 8px;
+            background: #A0522D;
+            border: none;
+            color: #FFE4B5;
+            padding: 10px 18px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 0.9em;
-            font-weight: 600;
+            font-size: 1.1em;
+            font-weight: 700;
         }
 
         .week-nav button:active {
-            background: #e94560;
-            color: white;
+            background: #8B4513;
+            transform: scale(0.95);
         }
 
         .week-label {
-            font-size: 0.95em;
-            font-weight: 700;
-            color: #fff;
+            font-size: 1.15em;
+            font-weight: 800;
+            color: #5D3A1A;
+            text-align: center;
         }
 
         .view {
@@ -119,58 +121,62 @@
         }
 
         .day-card {
-            background: #16213e;
-            margin: 10px 12px;
+            background: #fff;
+            margin: 12px 12px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 12px rgba(139,94,60,0.12);
+            border: 1px solid #e8ddd0;
         }
 
         .day-card.today {
-            border: 2px solid #e94560;
+            border: 2px solid #D2691E;
+            box-shadow: 0 4px 20px rgba(210,105,30,0.2);
         }
 
         .day-header {
-            background: linear-gradient(135deg, #0f3460, #16213e);
-            padding: 12px 16px;
+            background: linear-gradient(135deg, #D2B48C, #C4A67D);
+            padding: 14px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .day-header.today-header {
-            background: linear-gradient(135deg, #e94560, #c0392b);
+            background: linear-gradient(135deg, #D2691E, #CD853F);
         }
 
         .day-name {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: white;
+            font-size: 1.25em;
+            font-weight: 800;
+            color: #3E2723;
         }
 
         .day-date {
-            font-size: 0.8em;
-            color: rgba(255,255,255,0.7);
+            font-size: 0.85em;
+            color: rgba(62,39,35,0.7);
+            font-weight: 600;
         }
 
         .day-badge {
-            background: rgba(255,255,255,0.15);
-            padding: 3px 10px;
+            background: rgba(255,255,255,0.4);
+            padding: 4px 12px;
             border-radius: 12px;
-            font-size: 0.7em;
-            color: rgba(255,255,255,0.8);
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #3E2723;
         }
 
         .day-body {
-            padding: 12px 16px;
+            padding: 14px 16px;
         }
 
         .kid-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 10px 0;
+            border-bottom: 1px solid #f0e8df;
         }
 
         .kid-row:last-child {
@@ -178,78 +184,80 @@
         }
 
         .kid-name {
-            font-size: 1em;
-            font-weight: 600;
-            min-width: 90px;
+            font-size: 1.05em;
+            font-weight: 700;
+            min-width: 100px;
         }
 
-        .name-oskar { color: #3498db; }
-        .name-henri { color: #9b59b6; }
-        .name-enni { color: #e74c3c; }
-        .name-rikje { color: #1abc9c; }
+        .name-oskar { color: #1565C0; }
+        .name-henri { color: #7B1FA2; }
+        .name-enni { color: #C62828; }
+        .name-rikje { color: #00838F; }
 
         .block-buttons {
             display: flex;
-            gap: 4px;
+            gap: 6px;
         }
 
         .block-btn {
-            padding: 8px 14px;
-            border-radius: 10px;
-            border: 2px solid #333;
-            background: #1a1a2e;
-            color: #666;
-            font-size: 0.9em;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 2px solid #d4c5b3;
+            background: #faf5ef;
+            color: #a09080;
+            font-size: 0.95em;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
-            min-width: 44px;
+            min-width: 48px;
             text-align: center;
         }
 
         .block-btn:active {
-            transform: scale(0.95);
+            transform: scale(0.93);
         }
 
         .block-btn.selected-none {
-            background: #2c2c3e;
-            border-color: #555;
-            color: #999;
+            background: #f0e8df;
+            border-color: #c9b99a;
+            color: #8a7a6a;
         }
 
         .block-btn.selected-3 {
-            background: #1b5e20;
-            border-color: #4CAF50;
-            color: #4CAF50;
-            box-shadow: 0 0 10px rgba(76,175,80,0.3);
+            background: #E8F5E9;
+            border-color: #66BB6A;
+            color: #2E7D32;
+            box-shadow: 0 0 8px rgba(102,187,106,0.3);
         }
 
         .block-btn.selected-4 {
-            background: #e65100;
-            border-color: #FF9800;
-            color: #FF9800;
-            box-shadow: 0 0 10px rgba(255,152,0,0.3);
+            background: #FFF3E0;
+            border-color: #FFA726;
+            color: #E65100;
+            box-shadow: 0 0 8px rgba(255,167,38,0.3);
         }
 
         .section-divider {
             border: none;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin: 10px 0;
+            border-top: 1px solid #f0e8df;
+            margin: 12px 0;
         }
 
         .section-label {
-            font-size: 0.75em;
-            color: #888;
+            font-size: 0.78em;
+            color: #a09080;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 10px 0 6px 0;
+            margin: 12px 0 8px 0;
+            font-weight: 700;
         }
 
         .result-box {
-            background: rgba(255,255,255,0.05);
+            background: #faf5ef;
             border-radius: 12px;
-            padding: 10px 12px;
-            margin: 4px 0;
+            padding: 10px 14px;
+            margin: 6px 0;
+            border: 1px solid #e8ddd0;
         }
 
         .result-row {
@@ -260,27 +268,28 @@
         }
 
         .result-label {
-            font-size: 0.8em;
-            color: #aaa;
-        }
-
-        .result-value {
-            font-size: 0.9em;
+            font-size: 0.85em;
+            color: #8a7a6a;
             font-weight: 600;
         }
 
-        .train-green { color: #4CAF50; }
-        .train-orange { color: #FF9800; }
+        .result-value {
+            font-size: 0.95em;
+            font-weight: 700;
+        }
+
+        .train-green { color: #2E7D32; }
+        .train-orange { color: #E65100; }
 
         .abhol-btn {
-            padding: 8px 16px;
-            border-radius: 10px;
+            padding: 9px 18px;
+            border-radius: 12px;
             border: none;
-            font-size: 0.85em;
+            font-size: 0.9em;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
-            min-width: 80px;
+            min-width: 90px;
         }
 
         .abhol-btn:active {
@@ -288,46 +297,49 @@
         }
 
         .abhol-tina {
-            background: #1b5e20;
-            color: #4CAF50;
+            background: #E8F5E9;
+            color: #2E7D32;
+            border: 2px solid #66BB6A;
         }
 
         .abhol-jan {
-            background: #e65100;
-            color: #FF9800;
+            background: #FFF3E0;
+            color: #E65100;
+            border: 2px solid #FFA726;
         }
 
         .rikje-toggle {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 10px 0;
         }
 
         .toggle-switch {
             position: relative;
-            width: 50px;
-            height: 28px;
-            background: #1b5e20;
-            border-radius: 14px;
+            width: 52px;
+            height: 30px;
+            background: #66BB6A;
+            border-radius: 15px;
             cursor: pointer;
             transition: background 0.3s;
         }
 
         .toggle-switch.late {
-            background: #e65100;
+            background: #FFA726;
         }
 
         .toggle-switch::after {
             content: '';
             position: absolute;
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             background: white;
             border-radius: 50%;
             top: 3px;
             left: 3px;
             transition: transform 0.3s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
         }
 
         .toggle-switch.late::after {
@@ -335,40 +347,45 @@
         }
 
         .toggle-label {
-            font-size: 0.8em;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #5D3A1A;
         }
 
         .day-off-btn {
-            padding: 6px 12px;
-            border-radius: 8px;
-            border: 1px solid #555;
+            padding: 7px 14px;
+            border-radius: 10px;
+            border: 1px solid #d4c5b3;
             background: transparent;
-            color: #888;
-            font-size: 0.75em;
+            color: #a09080;
+            font-size: 0.78em;
             cursor: pointer;
+            font-weight: 600;
         }
 
         .day-off-btn.active {
-            background: #c62828;
-            border-color: #e53935;
-            color: white;
+            background: #FFCCBC;
+            border-color: #FF7043;
+            color: #BF360C;
         }
 
         .overview-card {
-            background: #16213e;
-            margin: 8px 12px;
-            border-radius: 12px;
+            background: #fff;
+            margin: 10px 12px;
+            border-radius: 14px;
             overflow: hidden;
+            border: 1px solid #e8ddd0;
+            box-shadow: 0 2px 12px rgba(139,94,60,0.1);
         }
 
         .overview-day {
-            padding: 10px 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0e8df;
             cursor: pointer;
         }
 
         .overview-day:active {
-            background: rgba(233,69,96,0.1);
+            background: #faf5ef;
         }
 
         .overview-day:last-child {
@@ -376,7 +393,8 @@
         }
 
         .overview-day.today-overview {
-            border-left: 3px solid #e94560;
+            border-left: 4px solid #D2691E;
+            background: #FFF8F0;
         }
 
         .overview-day-header {
@@ -386,74 +404,78 @@
         }
 
         .overview-day-name {
-            font-weight: 700;
-            font-size: 0.95em;
+            font-weight: 800;
+            font-size: 1em;
+            color: #3E2723;
         }
 
         .overview-details {
-            font-size: 0.75em;
-            color: #aaa;
-            line-height: 1.6;
+            font-size: 0.8em;
+            color: #8a7a6a;
+            line-height: 1.7;
         }
 
         .overview-chip {
             display: inline-block;
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin: 1px 2px;
+            padding: 3px 10px;
+            border-radius: 8px;
+            font-size: 0.78em;
+            font-weight: 700;
+            margin: 2px 2px;
         }
 
         .chip-green {
-            background: rgba(76,175,80,0.2);
-            color: #4CAF50;
+            background: #E8F5E9;
+            color: #2E7D32;
         }
 
         .chip-orange {
-            background: rgba(255,152,0,0.2);
-            color: #FF9800;
+            background: #FFF3E0;
+            color: #E65100;
         }
 
         .chip-off {
-            background: rgba(255,255,255,0.1);
-            color: #888;
+            background: #f0e8df;
+            color: #a09080;
         }
 
         .warning-box {
-            background: rgba(255,152,0,0.15);
-            border: 1px solid rgba(255,152,0,0.3);
-            border-radius: 10px;
-            padding: 8px 12px;
-            margin: 6px 0;
-            font-size: 0.8em;
-            color: #FFB74D;
+            background: #FFF3E0;
+            border: 1px solid #FFE0B2;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin: 8px 0;
+            font-size: 0.85em;
+            color: #E65100;
+            font-weight: 600;
         }
 
         .info-box {
-            background: rgba(76,175,80,0.15);
-            border: 1px solid rgba(76,175,80,0.3);
-            border-radius: 10px;
-            padding: 8px 12px;
-            margin: 6px 0;
-            font-size: 0.8em;
-            color: #81C784;
+            background: #E8F5E9;
+            border: 1px solid #C8E6C9;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin: 8px 0;
+            font-size: 0.85em;
+            color: #2E7D32;
+            font-weight: 600;
         }
 
         .legend {
-            margin: 10px 12px;
-            padding: 10px 14px;
-            background: #16213e;
-            border-radius: 12px;
-            font-size: 0.75em;
-            color: #888;
-            line-height: 1.8;
+            margin: 12px 12px;
+            padding: 14px 16px;
+            background: #fff;
+            border-radius: 14px;
+            font-size: 0.8em;
+            color: #8a7a6a;
+            line-height: 2;
+            border: 1px solid #e8ddd0;
         }
 
         .legend-dot {
             display: inline-block;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             margin-right: 4px;
             vertical-align: middle;
@@ -464,14 +486,14 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: #333;
-            color: white;
+            background: #5D3A1A;
+            color: #FFE4B5;
             padding: 12px 24px;
             border-radius: 12px;
             font-size: 0.85em;
             z-index: 1000;
             transition: transform 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 20px rgba(93,58,26,0.3);
             text-align: center;
             max-width: 90%;
         }
@@ -483,12 +505,12 @@
         .loading {
             text-align: center;
             padding: 40px;
-            color: #888;
+            color: #a09080;
         }
 
         .loading .spinner {
-            border: 3px solid #333;
-            border-top: 3px solid #e94560;
+            border: 3px solid #e8ddd0;
+            border-top: 3px solid #A0522D;
             border-radius: 50%;
             width: 30px;
             height: 30px;
@@ -501,13 +523,13 @@
         }
 
         .error-box {
-            background: rgba(244,67,54,0.15);
-            border: 1px solid rgba(244,67,54,0.3);
-            border-radius: 10px;
-            padding: 12px 16px;
+            background: #FFEBEE;
+            border: 1px solid #FFCDD2;
+            border-radius: 12px;
+            padding: 14px 16px;
             margin: 20px 12px;
             font-size: 0.85em;
-            color: #ef9a9a;
+            color: #C62828;
             text-align: center;
         }
     </style>
@@ -533,7 +555,7 @@
     <div class="view active" id="viewDays">
         <div class="loading" id="loadingDays">
             <div class="spinner"></div>
-            Verbinde mit Firebase...
+            Verbinde...
         </div>
         <div id="daysContainer"></div>
     </div>
@@ -543,10 +565,10 @@
     </div>
 
     <div class="legend">
-        <span class="legend-dot" style="background:#4CAF50"></span> <strong>3 Blöcke</strong> → Zug nach Velgast, Ankunft 15:41<br>
-        <span class="legend-dot" style="background:#FF9800"></span> <strong>4 Blöcke</strong> → Zug nach Buchenhorst, Ankunft 16:36<br>
-        🏡 Rikje wird auf dem Weg vom Bahnhof abgeholt<br>
-        Voreinstellung: Tina = früh, Jan = spät
+        <span class="legend-dot" style="background:#66BB6A"></span> <strong>3 Blöcke</strong> → Velgast 15:41<br>
+        <span class="legend-dot" style="background:#FFA726"></span> <strong>4 Blöcke</strong> → Buchenhorst 16:36<br>
+        🏡 Rikje wird auf dem Weg abgeholt<br>
+        Voreinstellung: 👩 Tina = früh · 👨 Jan = spät
     </div>
 
     <div class="toast" id="toast"></div>
@@ -555,7 +577,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script>
-        // Firebase Config
         try {
             firebase.initializeApp({
                 apiKey: "AIzaSyAzi-3Vdj23GcrWTsIweGKy9VbfDeZQA1U",
@@ -570,42 +591,41 @@
             document.getElementById('loadingDays').innerHTML = '<div class="error-box">Firebase Fehler: ' + e.message + '</div>';
         }
 
-        const db = firebase.database();
-
-        const KIDS = ['Oskar', 'Henri', 'Enni'];
-        const DAYS_DE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
-        const DAYS_SHORT = ['Mo', 'Di', 'Mi', 'Do', 'Fr'];
-        const KID_EMOJIS = { Oskar: '👦🏼', Henri: '🧒🏼', Enni: '👧🏼', Rikje: '👶🏼' };
-        const KID_CLASSES = { Oskar: 'name-oskar', Henri: 'name-henri', Enni: 'name-enni' };
-
-        let currentWeekOffset = 0;
-        let weekData = {};
-        let currentListener = null;
+        var db = firebase.database();
+        var KIDS = ['Oskar', 'Henri', 'Enni'];
+        var DAYS_DE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
+        var DAYS_SHORT = ['Mo', 'Di', 'Mi', 'Do', 'Fr'];
+        var KID_EMOJIS = { Oskar: '👦🏼', Henri: '🧒🏼', Enni: '👧🏼', Rikje: '👶🏼' };
+        var KID_CLASSES = { Oskar: 'name-oskar', Henri: 'name-henri', Enni: 'name-enni' };
+        var currentWeekOffset = 0;
+        var weekData = {};
+        var currentListener = null;
+        var isFirstLoad = true;
 
         function getMonday(offset) {
-            const now = new Date();
-            const day = now.getDay();
-            const diff = now.getDate() - day + (day === 0 ? -6 : 1);
-            const monday = new Date(now);
+            var now = new Date();
+            var day = now.getDay();
+            var diff = now.getDate() - day + (day === 0 ? -6 : 1);
+            var monday = new Date(now);
             monday.setDate(diff + (offset || 0) * 7);
             monday.setHours(0, 0, 0, 0);
             return monday;
         }
 
         function getISOWeek(date) {
-            const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+            var d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
             d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
             return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
         }
 
         function getWeekKey(offset) {
-            const mon = getMonday(offset);
+            var mon = getMonday(offset);
             return mon.getFullYear() + '-W' + String(getISOWeek(mon)).padStart(2, '0');
         }
 
         function getWeekDates(offset) {
-            const mon = getMonday(offset);
+            var mon = getMonday(offset);
             var dates = [];
             for (var i = 0; i < 5; i++) {
                 var d = new Date(mon);
@@ -621,38 +641,25 @@
 
         function isToday(d) {
             var now = new Date();
-            return d.getDate() === now.getDate() &&
-                   d.getMonth() === now.getMonth() &&
-                   d.getFullYear() === now.getFullYear();
+            return d.getDate() === now.getDate() && d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
         }
 
         function createDefaultDay() {
-            return {
-                oskar: '-',
-                henri: '-',
-                enni: '-',
-                abholFrueh: 'Tina',
-                abholSpaet: 'Jan',
-                rikjeRoute: 'frueh',
-                dayOff: false
-            };
+            return { oskar: '-', henri: '-', enni: '-', abholFrueh: 'Tina', abholSpaet: 'Jan', rikjeRoute: 'frueh', dayOff: false };
         }
 
         function createDefaultWeek() {
             var week = {};
-            for (var i = 0; i < 5; i++) {
-                week['day' + i] = createDefaultDay();
-            }
+            for (var i = 0; i < 5; i++) week['day' + i] = createDefaultDay();
             return week;
         }
 
         function listenToWeek() {
-            if (currentListener) {
-                currentListener.off();
-            }
+            if (currentListener) currentListener.off();
             var key = getWeekKey(currentWeekOffset);
             var ref = db.ref('weeks/' + key);
             currentListener = ref;
+            isFirstLoad = true;
 
             document.getElementById('loadingDays').style.display = 'block';
             document.getElementById('daysContainer').innerHTML = '';
@@ -662,9 +669,7 @@
                 if (snapshot.exists()) {
                     weekData = snapshot.val();
                     for (var i = 0; i < 5; i++) {
-                        if (!weekData['day' + i]) {
-                            weekData['day' + i] = createDefaultDay();
-                        }
+                        if (!weekData['day' + i]) weekData['day' + i] = createDefaultDay();
                     }
                 } else {
                     weekData = createDefaultWeek();
@@ -672,8 +677,7 @@
                 }
                 renderAll();
             }, function(error) {
-                document.getElementById('loadingDays').innerHTML =
-                    '<div class="error-box">Verbindungsfehler: ' + error.message + '</div>';
+                document.getElementById('loadingDays').innerHTML = '<div class="error-box">Fehler: ' + error.message + '</div>';
             });
         }
 
@@ -682,14 +686,9 @@
             db.ref('weeks/' + key + '/day' + dayIndex + '/' + field).set(value);
         }
 
-        // Connection status
         db.ref('.info/connected').on('value', function(snap) {
             var dot = document.getElementById('statusDot');
-            if (snap.val() === true) {
-                dot.className = 'status-dot status-online';
-            } else {
-                dot.className = 'status-dot status-offline';
-            }
+            dot.className = snap.val() === true ? 'status-dot status-online' : 'status-dot status-offline';
         });
 
         function switchView(view) {
@@ -710,13 +709,29 @@
             var mon = getMonday(currentWeekOffset);
             var fri = new Date(mon);
             fri.setDate(mon.getDate() + 4);
-            document.getElementById('weekLabel').textContent =
-                'KW ' + getISOWeek(mon) + ' · ' + formatDate(mon) + ' – ' + formatDate(fri);
+            document.getElementById('weekLabel').textContent = 'KW ' + getISOWeek(mon) + ' · ' + formatDate(mon) + ' – ' + formatDate(fri);
         }
 
         function renderAll() {
+            // Save scroll position
+            var scrollY = window.scrollY;
+
             renderDays();
             renderOverview();
+
+            // Restore scroll — but on first load, scroll to today
+            if (isFirstLoad) {
+                isFirstLoad = false;
+                setTimeout(function() {
+                    var todayEl = document.querySelector('.day-card.today');
+                    if (todayEl && currentWeekOffset === 0) {
+                        todayEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 200);
+            } else {
+                // Restore scroll position so it doesn't jump!
+                window.scrollTo(0, scrollY);
+            }
         }
 
         function renderDays() {
@@ -735,21 +750,11 @@
                     html += renderDayCard(i, d, today, day);
                 }
             }
-
             container.innerHTML = html;
-
-            // Scroll to today
-            setTimeout(function() {
-                var todayEl = document.querySelector('.day-card.today');
-                if (todayEl && currentWeekOffset === 0) {
-                    todayEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 200);
         }
 
         function renderDayCard(i, date, today, day) {
-            var kids3 = [];
-            var kids4 = [];
+            var kids3 = [], kids4 = [];
             KIDS.forEach(function(k) {
                 if (day[k.toLowerCase()] === '3') kids3.push(k);
                 if (day[k.toLowerCase()] === '4') kids4.push(k);
@@ -759,8 +764,7 @@
             var hasLate = kids4.length > 0;
             var rikjeRoute = day.rikjeRoute || 'frueh';
 
-            var rikjeText = '';
-            var rikjeClass = '';
+            var rikjeText = '', rikjeClass = '';
             if (hasEarly && hasLate) {
                 if (rikjeRoute === 'frueh') {
                     rikjeText = '👶🏼 Rikje → mit ' + day.abholFrueh + ' (Velgast-Route)';
@@ -791,99 +795,66 @@
                         '<button class="block-btn ' + (val === '-' ? 'selected-none' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'-\')">—</button>' +
                         '<button class="block-btn ' + (val === '3' ? 'selected-3' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'3\')">3</button>' +
                         '<button class="block-btn ' + (val === '4' ? 'selected-4' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'4\')">4</button>' +
-                    '</div>' +
-                '</div>';
+                    '</div></div>';
             });
 
             var earlyBox = '';
             if (hasEarly) {
-                var earlyEmojis = '';
-                kids3.forEach(function(k) { earlyEmojis += KID_EMOJIS[k] + ' '; });
-                earlyBox = '<div class="result-box">' +
-                    '<div class="result-row">' +
-                        '<span class="result-label">🟢 Velgast 15:41</span>' +
-                        '<span class="result-value train-green">' + earlyEmojis + '</span>' +
-                    '</div>' +
-                    '<div class="result-row">' +
-                        '<span class="result-label">Abholen:</span>' +
-                        '<button class="abhol-btn ' + (day.abholFrueh === 'Tina' ? 'abhol-tina' : 'abhol-jan') + '" onclick="toggleAbhol(' + i + ',\'frueh\')">' +
-                            (day.abholFrueh === 'Tina' ? '👩 Tina' : '👨 Jan') +
-                        '</button>' +
-                    '</div>' +
-                '</div>';
+                var ee = ''; kids3.forEach(function(k) { ee += KID_EMOJIS[k] + ' '; });
+                earlyBox = '<div class="result-box"><div class="result-row">' +
+                    '<span class="result-label">🟢 Velgast 15:41</span>' +
+                    '<span class="result-value train-green">' + ee + '</span></div>' +
+                    '<div class="result-row"><span class="result-label">Abholen:</span>' +
+                    '<button class="abhol-btn ' + (day.abholFrueh === 'Tina' ? 'abhol-tina' : 'abhol-jan') + '" onclick="toggleAbhol(' + i + ',\'frueh\')">' +
+                    (day.abholFrueh === 'Tina' ? '👩 Tina' : '👨 Jan') + '</button></div></div>';
             }
 
             var lateBox = '';
             if (hasLate) {
-                var lateEmojis = '';
-                kids4.forEach(function(k) { lateEmojis += KID_EMOJIS[k] + ' '; });
-                lateBox = '<div class="result-box" style="margin-top:6px;">' +
-                    '<div class="result-row">' +
-                        '<span class="result-label">🟠 Buchenhorst 16:36</span>' +
-                        '<span class="result-value train-orange">' + lateEmojis + '</span>' +
-                    '</div>' +
-                    '<div class="result-row">' +
-                        '<span class="result-label">Abholen:</span>' +
-                        '<button class="abhol-btn ' + (day.abholSpaet === 'Tina' ? 'abhol-tina' : 'abhol-jan') + '" onclick="toggleAbhol(' + i + ',\'spaet\')">' +
-                            (day.abholSpaet === 'Tina' ? '👩 Tina' : '👨 Jan') +
-                        '</button>' +
-                    '</div>' +
-                '</div>';
+                var le = ''; kids4.forEach(function(k) { le += KID_EMOJIS[k] + ' '; });
+                lateBox = '<div class="result-box" style="margin-top:6px;"><div class="result-row">' +
+                    '<span class="result-label">🟠 Buchenhorst 16:36</span>' +
+                    '<span class="result-value train-orange">' + le + '</span></div>' +
+                    '<div class="result-row"><span class="result-label">Abholen:</span>' +
+                    '<button class="abhol-btn ' + (day.abholSpaet === 'Tina' ? 'abhol-tina' : 'abhol-jan') + '" onclick="toggleAbhol(' + i + ',\'spaet\')">' +
+                    (day.abholSpaet === 'Tina' ? '👩 Tina' : '👨 Jan') + '</button></div></div>';
             }
 
             var rikjeSection = '';
             if (hasEarly || hasLate) {
-                rikjeSection = '<hr class="section-divider">' +
-                    '<div class="section-label">🏡 Rikje (Kita)</div>' +
+                rikjeSection = '<hr class="section-divider"><div class="section-label">🏡 Rikje (Kita)</div>' +
                     '<div class="' + rikjeClass + '">' + rikjeText + '</div>';
-
                 if (hasEarly && hasLate) {
                     rikjeSection += '<div class="rikje-toggle">' +
-                        '<span class="toggle-label">' +
-                            (rikjeRoute === 'frueh' ? '🟢 Rikje auf Velgast-Route' : '🟠 Rikje auf Buchenhorst-Route') +
-                        '</span>' +
-                        '<div class="toggle-switch ' + (rikjeRoute === 'spaet' ? 'late' : '') + '" onclick="toggleRikje(' + i + ')"></div>' +
-                    '</div>';
+                        '<span class="toggle-label">' + (rikjeRoute === 'frueh' ? '🟢 Velgast-Route' : '🟠 Buchenhorst-Route') + '</span>' +
+                        '<div class="toggle-switch ' + (rikjeRoute === 'spaet' ? 'late' : '') + '" onclick="toggleRikje(' + i + ')"></div></div>';
                 }
             }
 
             return '<div class="day-card ' + (today ? 'today' : '') + '" id="day-' + i + '">' +
                 '<div class="day-header ' + (today ? 'today-header' : '') + '">' +
-                    '<div>' +
-                        '<div class="day-name">' + DAYS_DE[i] + '</div>' +
-                        '<div class="day-date">' + formatDate(date) + '</div>' +
-                    '</div>' +
+                    '<div><div class="day-name">' + DAYS_DE[i] + '</div>' +
+                    '<div class="day-date">' + formatDate(date) + '</div></div>' +
                     '<div style="display:flex;gap:6px;align-items:center;">' +
                         (today ? '<span class="day-badge">HEUTE</span>' : '') +
                         '<button class="day-off-btn" onclick="toggleDayOff(' + i + ')">🏖️ Frei</button>' +
-                    '</div>' +
-                '</div>' +
+                    '</div></div>' +
                 '<div class="day-body">' +
-                    '<div class="section-label">🎒 Blöcke</div>' +
-                    kidRows +
-                    '<hr class="section-divider">' +
-                    '<div class="section-label">🚂 Abholung</div>' +
-                    earlyBox +
-                    lateBox +
-                    rikjeSection +
-                    warningHtml +
-                '</div>' +
-            '</div>';
+                    '<div class="section-label">🎒 Blöcke</div>' + kidRows +
+                    '<hr class="section-divider"><div class="section-label">🚂 Abholung</div>' +
+                    earlyBox + lateBox + rikjeSection + warningHtml +
+                '</div></div>';
         }
 
         function renderDayOff(i, date, today) {
             return '<div class="day-card ' + (today ? 'today' : '') + '" id="day-' + i + '">' +
                 '<div class="day-header ' + (today ? 'today-header' : '') + '">' +
-                    '<div>' +
-                        '<div class="day-name">' + DAYS_DE[i] + '</div>' +
-                        '<div class="day-date">' + formatDate(date) + '</div>' +
-                    '</div>' +
+                    '<div><div class="day-name">' + DAYS_DE[i] + '</div>' +
+                    '<div class="day-date">' + formatDate(date) + '</div></div>' +
                     '<button class="day-off-btn active" onclick="toggleDayOff(' + i + ')">🏖️ Frei</button>' +
                 '</div>' +
-                '<div class="day-body" style="text-align:center;padding:20px;color:#888;">' +
-                    '<div style="font-size:2em;margin-bottom:8px;">🏖️</div>Frei / Ferien' +
-                '</div>' +
-            '</div>';
+                '<div class="day-body" style="text-align:center;padding:24px;color:#a09080;">' +
+                    '<div style="font-size:2em;margin-bottom:8px;">🏖️</div>Frei / Ferien</div></div>';
         }
 
         function renderOverview() {
@@ -898,16 +869,12 @@
 
                 if (day.dayOff) {
                     html += '<div class="overview-day ' + (today ? 'today-overview' : '') + '" onclick="goToDay(' + i + ')">' +
-                        '<div class="overview-day-header">' +
-                            '<span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span>' +
-                            '<span class="overview-chip chip-off">🏖️ Frei</span>' +
-                        '</div>' +
-                    '</div>';
+                        '<div class="overview-day-header"><span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span>' +
+                        '<span class="overview-chip chip-off">🏖️ Frei</span></div></div>';
                     continue;
                 }
 
-                var kids3 = [];
-                var kids4 = [];
+                var kids3 = [], kids4 = [];
                 KIDS.forEach(function(k) {
                     if (day[k.toLowerCase()] === '3') kids3.push(k);
                     if (day[k.toLowerCase()] === '4') kids4.push(k);
@@ -915,58 +882,42 @@
 
                 var rikjeRoute = day.rikjeRoute || 'frueh';
                 var rikjeParent = '';
-                if (kids3.length > 0 && (rikjeRoute === 'frueh' || kids4.length === 0)) {
-                    rikjeParent = day.abholFrueh;
-                } else if (kids4.length > 0) {
-                    rikjeParent = day.abholSpaet;
-                }
+                if (kids3.length > 0 && (rikjeRoute === 'frueh' || kids4.length === 0)) rikjeParent = day.abholFrueh;
+                else if (kids4.length > 0) rikjeParent = day.abholSpaet;
 
                 var details = '';
-                if (kids3.length > 0) {
-                    details += '<span class="overview-chip chip-green">🟢 ' + kids3.join(', ') + ' → ' + day.abholFrueh + ' 15:41</span> ';
-                }
-                if (kids4.length > 0) {
-                    details += '<span class="overview-chip chip-orange">🟠 ' + kids4.join(', ') + ' → ' + day.abholSpaet + ' 16:36</span> ';
-                }
-                if (kids3.length > 0 || kids4.length > 0) {
-                    details += '<br>🏡 Rikje → ' + rikjeParent;
-                } else {
-                    details += '<span style="color:#666;">— Noch nicht eingetragen —</span>';
-                }
+                if (kids3.length > 0) details += '<span class="overview-chip chip-green">🟢 ' + kids3.join(', ') + ' → ' + day.abholFrueh + ' 15:41</span> ';
+                if (kids4.length > 0) details += '<span class="overview-chip chip-orange">🟠 ' + kids4.join(', ') + ' → ' + day.abholSpaet + ' 16:36</span> ';
+                if (rikjeParent) details += '<br>🏡 Rikje → ' + rikjeParent;
+                else details += '<span style="color:#bbb;">— Noch offen —</span>';
 
                 html += '<div class="overview-day ' + (today ? 'today-overview' : '') + '" onclick="goToDay(' + i + ')">' +
-                    '<div class="overview-day-header">' +
-                        '<span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span>' +
-                    '</div>' +
-                    '<div class="overview-details">' + details + '</div>' +
-                '</div>';
+                    '<div class="overview-day-header"><span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span></div>' +
+                    '<div class="overview-details">' + details + '</div></div>';
             }
 
             html += '</div>';
             container.innerHTML = html;
         }
 
-        function setBlock(dayIndex, kid, value) {
-            updateDay(dayIndex, kid, value);
-        }
+        function setBlock(dayIndex, kid, value) { updateDay(dayIndex, kid, value); }
 
         function toggleAbhol(dayIndex, type) {
             var day = weekData['day' + dayIndex];
             if (type === 'frueh') {
-                var next = day.abholFrueh === 'Tina' ? 'Jan' : 'Tina';
-                updateDay(dayIndex, 'abholFrueh', next);
-                updateDay(dayIndex, 'abholSpaet', next === 'Tina' ? 'Jan' : 'Tina');
+                var n = day.abholFrueh === 'Tina' ? 'Jan' : 'Tina';
+                updateDay(dayIndex, 'abholFrueh', n);
+                updateDay(dayIndex, 'abholSpaet', n === 'Tina' ? 'Jan' : 'Tina');
             } else {
-                var next2 = day.abholSpaet === 'Tina' ? 'Jan' : 'Tina';
-                updateDay(dayIndex, 'abholSpaet', next2);
-                updateDay(dayIndex, 'abholFrueh', next2 === 'Tina' ? 'Jan' : 'Tina');
+                var n2 = day.abholSpaet === 'Tina' ? 'Jan' : 'Tina';
+                updateDay(dayIndex, 'abholSpaet', n2);
+                updateDay(dayIndex, 'abholFrueh', n2 === 'Tina' ? 'Jan' : 'Tina');
             }
         }
 
         function toggleRikje(dayIndex) {
             var day = weekData['day' + dayIndex];
-            var current = day.rikjeRoute || 'frueh';
-            updateDay(dayIndex, 'rikjeRoute', current === 'frueh' ? 'spaet' : 'frueh');
+            updateDay(dayIndex, 'rikjeRoute', (day.rikjeRoute || 'frueh') === 'frueh' ? 'spaet' : 'frueh');
         }
 
         function toggleDayOff(dayIndex) {
@@ -989,7 +940,6 @@
             setTimeout(function() { toast.classList.remove('show'); }, 2500);
         }
 
-        // INIT
         updateWeekLabel();
         listenToWeek();
     </script>
