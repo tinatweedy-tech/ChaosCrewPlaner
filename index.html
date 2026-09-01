@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Abhol-Planer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #16213e, #0f3460);
+            padding: 12px 16px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 1.2em;
+            color: #e94560;
+        }
+
+        .header .subtitle {
+            font-size: 0.7em;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .status-online { background: #4CAF50; }
+        .status-offline { background: #f44336; }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            background: #16213e;
+            border-bottom: 2px solid #0f3460;
+            position: sticky;
+            top: 58px;
+            z-index: 99;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px 4px;
+            text-align: center;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #e94560;
+            border-bottom-color: #e94560;
+        }
+
+        /* Week Navigation */
+        .week-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background: #16213e;
+        }
+
+        .week-nav button {
+            background: rgba(233,69,96,0.2);
+            border: 1px solid #e94560;
+            color: #e94560;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .week-nav button:active {
+            background: #e94560;
+            color: white;
+        }
+
+        .week-label {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* View Container */
+        .view {
+            display: none;
+            padding-bottom: 20px;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* Day Card */
+        .day-card {
+            background: #16213e;
+            margin: 10px 12px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .day-card.today {
+            border: 2px solid #e94560;
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header.today-header {
+            background: linear-gradient(135deg, #e94560, #c0392b);
+        }
+
+        .day-name {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: white;
+        }
+
+        .day-date {
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .day-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .day-body {
+            padding: 12px 16px;
+        }
+
+        /* Kid Row */
+        .kid-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .kid-row:last-child {
+            border-bottom: none;
+        }
+
+        .kid-name {
+            font-size: 1em;
+            font-weight: 600;
+            min-width: 90px;
+        }
+
+        .name-oskar { color: #3498db; }
+        .name-henri { color: #9b59b6; }
+        .name-enni { color: #e74c3c; }
+        .name-rikje { color: #1abc9c; }
+        .name-tina { color: #4CAF50; }
+        .name-jan { color: #FF9800; }
+
+        /* Block Toggle Buttons */
+        .block-buttons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .block-btn {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 2px solid #333;
+            background: #1a1a2e;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 44px;
+            text-align: center;
+        }
+
+        .block-btn:active {
+            transform: scale(0.95);
+        }
+
+        .block-btn.selected-none {
+            background: #2c2c3e;
+            border-color: #555;
+            color: #999;
+        }
+
+        .block-btn.selected-3 {
+            background: #1b5e20;
+            border-color: #4CAF50;
+            color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76,175,80,0.3);
+        }
+
+        .block-btn.selected-4 {
+            background: #e65100;
+            border-color: #FF9800;
+            color: #FF9800;
+            box-shadow: 0 0 10px rgba(255,152,0,0.3);
+        }
+
+        /* Divider */
+        .section-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 10px 0;
+        }
+
+        .section-label {
+            font-size: 0.75em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0 6px 0;
+        }
+
+        /* Result Area */
+        .result-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin: 4px 0;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+        }
+
+        .result-label {
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        .result-value {
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .train-green { color: #4CAF50; }
+        .train-orange { color: #FF9800; }
+
+        /* Abhol Select */
+        .abhol-btn {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: none;
+            font-size: 0.85em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 80px;
+        }
+
+        .abhol-btn:active {
+            transform: scale(0.95);
+        }
+
+        .abhol-tina {
+            background: #1b5e20;
+            color: #4CAF50;
+        }
+
+        .abhol-jan {
+            background: #e65100;
+            color: #FF9800;
+        }
+
+        .abhol-none {
+            background: #333;
+            color: #888;
+        }
+
+        /* Rikje Toggle */
+        .rikje-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 28px;
+            background: #1b5e20;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.late {
+            background: #e65100;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.late::after {
+            transform: translateX(22px);
+        }
+
+        .toggle-label {
+            font-size: 0.8em;
+        }
+
+        /* Day Off Button */
+        .day-off-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background: transparent;
+            color: #888;
+            font-size: 0.75em;
+            cursor: pointer;
+        }
+
+        .day-off-btn.active {
+            background: #c62828;
+            border-color: #e53935;
+            color: white;
+        }
+
+        /* ===== WOCHENÜBERSICHT ===== */
+        .overview-card {
+            background: #16213e;
+            margin: 8px 12px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .overview-day {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+
+        .overview-day:active {
+            background: rgba(233,69,96,0.1);
+        }
+
+        .overview-day:last-child {
+            border-bottom: none;
+        }
+
+        .overview-day.today-overview {
+            border-left: 3px solid #e94560;
+        }
+
+        .overview-day-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .overview-day-name {
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+
+        .overview-details {
+            font-size: 0.75em;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .overview-chip {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin: 1px 2px;
+        }
+
+        .chip-green {
+            background: rgba(76,175,80,0.2);
+            color: #4CAF50;
+        }
+
+        .chip-orange {
+            background: rgba(255,152,0,0.2);
+            color: #FF9800;
+        }
+
+        .chip-off {
+            background: rgba(255,255,255,0.1);
+            color: #888;
+        }
+
+        /* Legend */
+        .legend {
+            margin: 10px 12px;
+            padding: 10px 14px;
+            background: #16213e;
+            border-radius: 12px;
+            font-size: 0.75em;
+            color: #888;
+            line-height: 1.8;
+        }
+
+        .legend-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Warning */
+        .warning-box {
+            background: rgba(255,152,0,0.15);
+            border: 1px solid rgba(255,152,0,0.3);
+            border-radius: 10px;
+            padding: 8px 12px;
+            margin: 6px 0;
+            font-size: 0.8em;
+            color: #FFB74D;
+        }
+
+        .info-box {
+            background: rgba(76,175,80,0.15);
+            border: 1px solid rgba(76,175,80,0.3);
+            border-radius: 10px;
+            padding: 8px 12px;
+            margin: 6px 0;
+            font-size: 0.8em;
+            color: #81C784;
+        }
+
+        /* Scroll to today button */
+        .scroll-today {
+            position: fixed;
+            bottom: 20px;
+            right: 16px;
+            background: #e94560;
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(233,69,96,0.4);
+            z-index: 90;
+            display: none;
+        }
+
+        .view.active .scroll-today {
+            display: block;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        .loading .spinner {
+            border: 3px solid #333;
+            border-top: 3px solid #e94560;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🚂 Abhol-Planer <span class="status-dot status-offline" id="statusDot"></span></h1>
+        <div class="subtitle">Oskar • Henri • Enni • Rikje — Tina & Jan</div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="switchView('days')" id="tabDays">📅 Tage</div>
+        <div class="tab" onclick="switchView('overview')" id="tabOverview">📋 Woche</div>
+    </div>
+
+    <div class="week-nav">
+        <button onclick="changeWeek(-1)">◀</button>
+        <span class="week-label" id="weekLabel">KW 29</span>
+        <button onclick="changeWeek(1)">▶</button>
+    </div>
+
+    <div class="view active" id="viewDays">
+        <div class="loading" id="loadingDays">
+            <div class="spinner"></div>
+            Verbinde mit Firebase...
+        </div>
+        <div id="daysContainer"></div>
+        <button class="scroll-today" onclick="scrollToToday()" id="btnScrollToday">📍</button>
+    </div>
+
+    <div class="view" id="viewOverview">
+        <div id="overviewContainer"></div>
+    </div>
+
+    <div class="legend">
+        <span class="legend-dot" style="background:#4CAF50"></span> <strong>3 Blöcke</strong> → Zug nach Velgast, Ankunft 15:41<br>
+        <span class="legend-dot" style="background:#FF9800"></span> <strong>4 Blöcke</strong> → Zug nach Buchenhorst, Ankunft 16:36<br>
+        🏡 Rikje wird auf dem Weg vom Bahnhof abgeholt<br>
+        Voreinstellung: Tina = früh, Jan = spät
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <script>
+        // ===== FIREBASE CONFIG =====
+        const firebaseConfig = {
+            apiKey: "AIzaSyAzi-3Vdj23GcrWTsIweGKy9VbfDeZQA1U",
+            authDomain: "familienplaner-9046e.firebaseapp.com",
+            databaseURL: "https://familienplaner-9046e-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "familienplaner-9046e",
+            storageBucket: "familienplaner-9046e.firebasestorage.app",
+            messagingSenderId: "133115165357",
+            appId: "1:133115165357:web:8b3bc717611fa7dcb46424"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        // ===== CONSTANTS =====
+        const KIDS = ['Oskar', 'Henri', 'Enni'];
+        const DAYS_DE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
+        const DAYS_SHORT = ['Mo', 'Di', 'Mi', 'Do', 'Fr'];
+        const KID_EMOJIS = { Oskar: '👦🏼', Henri: '🧒🏼', Enni: '👧🏼', Rikje: '👶🏼' };
+        const KID_CLASSES = { Oskar: 'name-oskar', Henri: 'name-henri', Enni: 'name-enni' };
+
+        let currentWeekOffset = 0;
+        let weekData = {};
+        let currentListener = null;
+
+        // ===== DATE HELPERS =====
+        function getMonday(offset = 0) {
+            const now = new Date();
+            const day = now.getDay();
+            const diff = now.getDate() - day + (day === 0 ? -6 : 1);
+            const monday = new Date(now);
+            monday.setDate(diff + offset * 7);
+            monday.setHours(0, 0, 0, 0);
+            return monday;
+        }
+
+        function getISOWeek(date) {
+            const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+            d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        }
+
+        function getWeekKey(offset) {
+            const mon = getMonday(offset);
+            return `${mon.getFullYear()}-W${String(getISOWeek(mon)).padStart(2, '0')}`;
+        }
+
+        function getWeekDates(offset) {
+            const mon = getMonday(offset);
+            return Array.from({ length: 5 }, (_, i) => {
+                const d = new Date(mon);
+                d.setDate(mon.getDate() + i);
+                return d;
+            });
+        }
+
+        function formatDate(d) {
+            return `${d.getDate()}.${d.getMonth() + 1}.`;
+        }
+
+        function isToday(d) {
+            const now = new Date();
+            return d.getDate() === now.getDate() &&
+                   d.getMonth() === now.getMonth() &&
+                   d.getFullYear() === now.getFullYear();
+        }
+
+        function getTodayDayIndex() {
+            const now = new Date();
+            const day = now.getDay();
+            return day >= 1 && day <= 5 ? day - 1 : -1;
+        }
+
+        // ===== DEFAULT DATA =====
+        function createDefaultDay() {
+            return {
+                oskar: '-',
+                henri: '-',
+                enni: '-',
+                abholFrueh: 'Tina',
+                abholSpaet: 'Jan',
+                rikjeRoute: 'frueh',
+                dayOff: false
+            };
+        }
+
+        function createDefaultWeek() {
+            const week = {};
+            for (let i = 0; i < 5; i++) {
+                week[`day${i}`] = createDefaultDay();
+            }
+            return week;
+        }
+
+        // ===== FIREBASE SYNC =====
+        function getWeekRef(offset) {
+            const key = getWeekKey(offset);
+            return db.ref(`weeks/${key}`);
+        }
+
+        function listenToWeek() {
+            if (currentListener) {
+                currentListener.off();
+            }
+            const ref = getWeekRef(currentWeekOffset);
+            currentListener = ref;
+
+            document.getElementById('loadingDays').style.display = 'block';
+
+            ref.on('value', (snapshot) => {
+                document.getElementById('loadingDays').style.display = 'none';
+                if (snapshot.exists()) {
+                    weekData = snapshot.val();
+                    // Fill missing days
+                    for (let i = 0; i < 5; i++) {
+                        if (!weekData[`day${i}`]) {
+                            weekData[`day${i}`] = createDefaultDay();
+                        }
+                    }
+                } else {
+                    weekData = createDefaultWeek();
+                    ref.set(weekData);
+                }
+                renderAll();
+            });
+        }
+
+        function updateDay(dayIndex, field, value) {
+            const ref = getWeekRef(currentWeekOffset);
+            ref.child(`day${dayIndex}/${field}`).set(value);
+        }
+
+        // ===== CONNECTION STATUS =====
+        firebase.database().ref('.info/connected').on('value', (snap) => {
+            const dot = document.getElementById('statusDot');
+            if (snap.val() === true) {
+                dot.classN
