@@ -14,12 +14,13 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #fdf6ee;
+            background: #FFF8F2;
             color: #4a3728;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
+        /* ===== HEADER ===== */
         .header {
             background: linear-gradient(135deg, #8B5E3C, #A0522D);
             padding: 14px 16px;
@@ -53,39 +54,41 @@
         .status-online { background: #66BB6A; }
         .status-offline { background: #ef5350; }
 
+        /* ===== TABS - Lachsfarben ===== */
         .tabs {
             display: flex;
-            background: #8B5E3C;
-            border-bottom: 2px solid #A0522D;
+            background: linear-gradient(135deg, #E8967D, #D4836B);
             position: sticky;
             top: 62px;
             z-index: 99;
+            box-shadow: 0 2px 8px rgba(210,120,90,0.25);
         }
 
         .tab {
             flex: 1;
-            padding: 12px 4px;
+            padding: 13px 4px;
             text-align: center;
-            font-size: 0.9em;
-            font-weight: 600;
-            color: rgba(255,228,181,0.5);
+            font-size: 0.95em;
+            font-weight: 700;
+            color: rgba(255,255,255,0.55);
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
         }
 
         .tab.active {
-            color: #FFE4B5;
-            border-bottom-color: #FFE4B5;
+            color: #fff;
+            border-bottom-color: #fff;
         }
 
+        /* ===== WEEK NAV ===== */
         .week-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 16px;
-            background: #f5e6d3;
-            border-bottom: 1px solid #e0cdb8;
+            background: #f5e8da;
+            border-bottom: 1px solid #e8d5c4;
         }
 
         .week-nav button {
@@ -111,6 +114,7 @@
             text-align: center;
         }
 
+        /* ===== VIEWS ===== */
         .view {
             display: none;
             padding-bottom: 20px;
@@ -120,23 +124,24 @@
             display: block;
         }
 
+        /* ===== DAY CARD ===== */
         .day-card {
             background: #fff;
-            margin: 12px 12px;
+            margin: 10px 12px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(139,94,60,0.12);
-            border: 1px solid #e8ddd0;
+            box-shadow: 0 2px 10px rgba(139,94,60,0.08);
+            border: 1px solid #ede3d7;
         }
 
         .day-card.today {
             border: 2px solid #D2691E;
-            box-shadow: 0 4px 20px rgba(210,105,30,0.2);
+            box-shadow: 0 4px 18px rgba(210,105,30,0.15);
         }
 
         .day-header {
-            background: linear-gradient(135deg, #D2B48C, #C4A67D);
-            padding: 14px 16px;
+            background: linear-gradient(135deg, #DCC7B0, #D4BDA6);
+            padding: 12px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -147,36 +152,37 @@
         }
 
         .day-name {
-            font-size: 1.25em;
+            font-size: 1.1em;
             font-weight: 800;
             color: #3E2723;
         }
 
         .day-date {
-            font-size: 0.85em;
-            color: rgba(62,39,35,0.7);
+            font-size: 0.8em;
+            color: rgba(62,39,35,0.6);
             font-weight: 600;
         }
 
         .day-badge {
-            background: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.45);
             padding: 4px 12px;
             border-radius: 12px;
-            font-size: 0.75em;
+            font-size: 0.72em;
             font-weight: 700;
             color: #3E2723;
         }
 
         .day-body {
-            padding: 14px 16px;
+            padding: 12px 16px;
         }
 
+        /* ===== KID ROWS ===== */
         .kid-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0e8df;
+            padding: 9px 0;
+            border-bottom: 1px solid #f5efe8;
         }
 
         .kid-row:last-child {
@@ -184,7 +190,7 @@
         }
 
         .kid-name {
-            font-size: 1.05em;
+            font-size: 1em;
             font-weight: 700;
             min-width: 100px;
         }
@@ -192,8 +198,8 @@
         .name-oskar { color: #1565C0; }
         .name-henri { color: #7B1FA2; }
         .name-enni { color: #C62828; }
-        .name-rikje { color: #00838F; }
 
+        /* ===== BLOCK BUTTONS ===== */
         .block-buttons {
             display: flex;
             gap: 6px;
@@ -202,9 +208,9 @@
         .block-btn {
             padding: 10px 16px;
             border-radius: 12px;
-            border: 2px solid #d4c5b3;
-            background: #faf5ef;
-            color: #a09080;
+            border: 2px solid #ddd0c2;
+            background: #FFF8F2;
+            color: #b0a090;
             font-size: 0.95em;
             font-weight: 700;
             cursor: pointer;
@@ -227,44 +233,46 @@
             background: #E8F5E9;
             border-color: #66BB6A;
             color: #2E7D32;
-            box-shadow: 0 0 8px rgba(102,187,106,0.3);
+            box-shadow: 0 0 8px rgba(102,187,106,0.25);
         }
 
         .block-btn.selected-4 {
             background: #FFF3E0;
             border-color: #FFA726;
             color: #E65100;
-            box-shadow: 0 0 8px rgba(255,167,38,0.3);
+            box-shadow: 0 0 8px rgba(255,167,38,0.25);
         }
 
+        /* ===== SECTIONS ===== */
         .section-divider {
             border: none;
             border-top: 1px solid #f0e8df;
-            margin: 12px 0;
+            margin: 10px 0;
         }
 
         .section-label {
-            font-size: 0.78em;
+            font-size: 0.75em;
             color: #a09080;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 12px 0 8px 0;
+            margin: 10px 0 6px 0;
             font-weight: 700;
         }
 
+        /* ===== RESULT BOX ===== */
         .result-box {
-            background: #faf5ef;
+            background: #faf6f0;
             border-radius: 12px;
             padding: 10px 14px;
-            margin: 6px 0;
-            border: 1px solid #e8ddd0;
+            margin: 5px 0;
+            border: 1px solid #ede3d7;
         }
 
         .result-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px 0;
+            padding: 5px 0;
         }
 
         .result-label {
@@ -281,10 +289,11 @@
         .train-green { color: #2E7D32; }
         .train-orange { color: #E65100; }
 
+        /* ===== ABHOL BUTTON ===== */
         .abhol-btn {
             padding: 9px 18px;
             border-radius: 12px;
-            border: none;
+            border: 2px solid transparent;
             font-size: 0.9em;
             font-weight: 700;
             cursor: pointer;
@@ -299,20 +308,21 @@
         .abhol-tina {
             background: #E8F5E9;
             color: #2E7D32;
-            border: 2px solid #66BB6A;
+            border-color: #66BB6A;
         }
 
         .abhol-jan {
             background: #FFF3E0;
             color: #E65100;
-            border: 2px solid #FFA726;
+            border-color: #FFA726;
         }
 
+        /* ===== RIKJE TOGGLE ===== */
         .rikje-toggle {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 8px 0;
         }
 
         .toggle-switch {
@@ -339,7 +349,7 @@
             top: 3px;
             left: 3px;
             transition: transform 0.3s;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
         }
 
         .toggle-switch.late::after {
@@ -352,13 +362,14 @@
             color: #5D3A1A;
         }
 
+        /* ===== DAY OFF ===== */
         .day-off-btn {
             padding: 7px 14px;
             border-radius: 10px;
-            border: 1px solid #d4c5b3;
+            border: 1px solid #ddd0c2;
             background: transparent;
             color: #a09080;
-            font-size: 0.78em;
+            font-size: 0.75em;
             cursor: pointer;
             font-weight: 600;
         }
@@ -369,23 +380,24 @@
             color: #BF360C;
         }
 
+        /* ===== OVERVIEW ===== */
         .overview-card {
             background: #fff;
             margin: 10px 12px;
             border-radius: 14px;
             overflow: hidden;
-            border: 1px solid #e8ddd0;
-            box-shadow: 0 2px 12px rgba(139,94,60,0.1);
+            border: 1px solid #ede3d7;
+            box-shadow: 0 2px 10px rgba(139,94,60,0.08);
         }
 
         .overview-day {
-            padding: 12px 16px;
+            padding: 14px 16px;
             border-bottom: 1px solid #f0e8df;
             cursor: pointer;
         }
 
         .overview-day:active {
-            background: #faf5ef;
+            background: #faf6f0;
         }
 
         .overview-day:last-child {
@@ -394,34 +406,35 @@
 
         .overview-day.today-overview {
             border-left: 4px solid #D2691E;
-            background: #FFF8F0;
+            background: #FFF5EE;
         }
 
         .overview-day-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 6px;
+            align-items: center;
+            margin-bottom: 8px;
         }
 
         .overview-day-name {
             font-weight: 800;
-            font-size: 1em;
+            font-size: 1.1em;
             color: #3E2723;
         }
 
         .overview-details {
-            font-size: 0.8em;
-            color: #8a7a6a;
-            line-height: 1.7;
+            font-size: 0.9em;
+            color: #6d5a4a;
+            line-height: 1.8;
         }
 
         .overview-chip {
             display: inline-block;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 8px;
-            font-size: 0.78em;
+            font-size: 0.85em;
             font-weight: 700;
-            margin: 2px 2px;
+            margin: 2px 3px;
         }
 
         .chip-green {
@@ -435,16 +448,24 @@
         }
 
         .chip-off {
-            background: #f0e8df;
+            background: #f5efe8;
             color: #a09080;
         }
 
+        .overview-rikje {
+            margin-top: 4px;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #6d5a4a;
+        }
+
+        /* ===== BOXES ===== */
         .warning-box {
             background: #FFF3E0;
             border: 1px solid #FFE0B2;
             border-radius: 12px;
             padding: 10px 14px;
-            margin: 8px 0;
+            margin: 6px 0;
             font-size: 0.85em;
             color: #E65100;
             font-weight: 600;
@@ -455,12 +476,13 @@
             border: 1px solid #C8E6C9;
             border-radius: 12px;
             padding: 10px 14px;
-            margin: 8px 0;
+            margin: 6px 0;
             font-size: 0.85em;
             color: #2E7D32;
             font-weight: 600;
         }
 
+        /* ===== LEGEND ===== */
         .legend {
             margin: 12px 12px;
             padding: 14px 16px;
@@ -469,7 +491,7 @@
             font-size: 0.8em;
             color: #8a7a6a;
             line-height: 2;
-            border: 1px solid #e8ddd0;
+            border: 1px solid #ede3d7;
         }
 
         .legend-dot {
@@ -481,6 +503,7 @@
             vertical-align: middle;
         }
 
+        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -502,6 +525,7 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        /* ===== LOADING ===== */
         .loading {
             text-align: center;
             padding: 40px;
@@ -509,7 +533,7 @@
         }
 
         .loading .spinner {
-            border: 3px solid #e8ddd0;
+            border: 3px solid #ede3d7;
             border-top: 3px solid #A0522D;
             border-radius: 50%;
             width: 30px;
@@ -660,7 +684,6 @@
             var ref = db.ref('weeks/' + key);
             currentListener = ref;
             isFirstLoad = true;
-
             document.getElementById('loadingDays').style.display = 'block';
             document.getElementById('daysContainer').innerHTML = '';
 
@@ -687,8 +710,7 @@
         }
 
         db.ref('.info/connected').on('value', function(snap) {
-            var dot = document.getElementById('statusDot');
-            dot.className = snap.val() === true ? 'status-dot status-online' : 'status-dot status-offline';
+            document.getElementById('statusDot').className = snap.val() === true ? 'status-dot status-online' : 'status-dot status-offline';
         });
 
         function switchView(view) {
@@ -713,23 +735,16 @@
         }
 
         function renderAll() {
-            // Save scroll position
             var scrollY = window.scrollY;
-
             renderDays();
             renderOverview();
-
-            // Restore scroll — but on first load, scroll to today
             if (isFirstLoad) {
                 isFirstLoad = false;
                 setTimeout(function() {
-                    var todayEl = document.querySelector('.day-card.today');
-                    if (todayEl && currentWeekOffset === 0) {
-                        todayEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    var el = document.querySelector('.day-card.today');
+                    if (el && currentWeekOffset === 0) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 200);
             } else {
-                // Restore scroll position so it doesn't jump!
                 window.scrollTo(0, scrollY);
             }
         }
@@ -738,17 +753,11 @@
             var container = document.getElementById('daysContainer');
             var dates = getWeekDates(currentWeekOffset);
             var html = '';
-
             for (var i = 0; i < 5; i++) {
                 var d = dates[i];
                 var day = weekData['day' + i] || createDefaultDay();
                 var today = isToday(d);
-
-                if (day.dayOff) {
-                    html += renderDayOff(i, d, today);
-                } else {
-                    html += renderDayCard(i, d, today, day);
-                }
+                html += day.dayOff ? renderDayOff(i, d, today) : renderDayCard(i, d, today, day);
             }
             container.innerHTML = html;
         }
@@ -759,186 +768,105 @@
                 if (day[k.toLowerCase()] === '3') kids3.push(k);
                 if (day[k.toLowerCase()] === '4') kids4.push(k);
             });
-
-            var hasEarly = kids3.length > 0;
-            var hasLate = kids4.length > 0;
+            var hasEarly = kids3.length > 0, hasLate = kids4.length > 0;
             var rikjeRoute = day.rikjeRoute || 'frueh';
-
             var rikjeText = '', rikjeClass = '';
             if (hasEarly && hasLate) {
-                if (rikjeRoute === 'frueh') {
-                    rikjeText = '👶🏼 Rikje → mit ' + day.abholFrueh + ' (Velgast-Route)';
-                    rikjeClass = 'info-box';
-                } else {
-                    rikjeText = '👶🏼 Rikje → mit ' + day.abholSpaet + ' (Buchenhorst-Route)';
-                    rikjeClass = 'warning-box';
-                }
-            } else if (hasEarly) {
-                rikjeText = '👶🏼 Rikje → mit ' + day.abholFrueh + ' (Velgast-Route)';
-                rikjeClass = 'info-box';
-            } else if (hasLate) {
-                rikjeText = '👶🏼 Rikje → mit ' + day.abholSpaet + ' (Buchenhorst-Route)';
-                rikjeClass = 'warning-box';
-            }
-
-            var warningHtml = '';
-            if (!hasEarly && !hasLate) {
-                warningHtml = '<div class="warning-box">⚠️ Noch keine Blöcke eingetragen</div>';
-            }
+                if (rikjeRoute === 'frueh') { rikjeText = '👶🏼 Rikje → mit ' + day.abholFrueh + ' (Velgast)'; rikjeClass = 'info-box'; }
+                else { rikjeText = '👶🏼 Rikje → mit ' + day.abholSpaet + ' (Buchenhorst)'; rikjeClass = 'warning-box'; }
+            } else if (hasEarly) { rikjeText = '👶🏼 Rikje → mit ' + day.abholFrueh + ' (Velgast)'; rikjeClass = 'info-box'; }
+            else if (hasLate) { rikjeText = '👶🏼 Rikje → mit ' + day.abholSpaet + ' (Buchenhorst)'; rikjeClass = 'warning-box'; }
 
             var kidRows = '';
             KIDS.forEach(function(kid) {
                 var val = day[kid.toLowerCase()] || '-';
-                kidRows += '<div class="kid-row">' +
-                    '<span class="kid-name ' + KID_CLASSES[kid] + '">' + KID_EMOJIS[kid] + ' ' + kid + '</span>' +
+                kidRows += '<div class="kid-row"><span class="kid-name ' + KID_CLASSES[kid] + '">' + KID_EMOJIS[kid] + ' ' + kid + '</span>' +
                     '<div class="block-buttons">' +
-                        '<button class="block-btn ' + (val === '-' ? 'selected-none' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'-\')">—</button>' +
-                        '<button class="block-btn ' + (val === '3' ? 'selected-3' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'3\')">3</button>' +
-                        '<button class="block-btn ' + (val === '4' ? 'selected-4' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'4\')">4</button>' +
+                    '<button class="block-btn ' + (val === '-' ? 'selected-none' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'-\')">—</button>' +
+                    '<button class="block-btn ' + (val === '3' ? 'selected-3' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'3\')">3</button>' +
+                    '<button class="block-btn ' + (val === '4' ? 'selected-4' : '') + '" onclick="setBlock(' + i + ',\'' + kid.toLowerCase() + '\',\'4\')">4</button>' +
                     '</div></div>';
             });
 
             var earlyBox = '';
             if (hasEarly) {
                 var ee = ''; kids3.forEach(function(k) { ee += KID_EMOJIS[k] + ' '; });
-                earlyBox = '<div class="result-box"><div class="result-row">' +
-                    '<span class="result-label">🟢 Velgast 15:41</span>' +
-                    '<span class="result-value train-green">' + ee + '</span></div>' +
+                earlyBox = '<div class="result-box"><div class="result-row"><span class="result-label">🟢 Velgast 15:41</span><span class="result-value train-green">' + ee + '</span></div>' +
                     '<div class="result-row"><span class="result-label">Abholen:</span>' +
                     '<button class="abhol-btn ' + (day.abholFrueh === 'Tina' ? 'abhol-tina' : 'abhol-jan') + '" onclick="toggleAbhol(' + i + ',\'frueh\')">' +
                     (day.abholFrueh === 'Tina' ? '👩 Tina' : '👨 Jan') + '</button></div></div>';
             }
-
             var lateBox = '';
             if (hasLate) {
                 var le = ''; kids4.forEach(function(k) { le += KID_EMOJIS[k] + ' '; });
-                lateBox = '<div class="result-box" style="margin-top:6px;"><div class="result-row">' +
-                    '<span class="result-label">🟠 Buchenhorst 16:36</span>' +
-                    '<span class="result-value train-orange">' + le + '</span></div>' +
+                lateBox = '<div class="result-box" style="margin-top:6px;"><div class="result-row"><span class="result-label">🟠 Buchenhorst 16:36</span><span class="result-value train-orange">' + le + '</span></div>' +
                     '<div class="result-row"><span class="result-label">Abholen:</span>' +
                     '<button class="abhol-btn ' + (day.abholSpaet === 'Tina' ? 'abhol-tina' : 'abhol-jan') + '" onclick="toggleAbhol(' + i + ',\'spaet\')">' +
                     (day.abholSpaet === 'Tina' ? '👩 Tina' : '👨 Jan') + '</button></div></div>';
             }
-
             var rikjeSection = '';
             if (hasEarly || hasLate) {
-                rikjeSection = '<hr class="section-divider"><div class="section-label">🏡 Rikje (Kita)</div>' +
-                    '<div class="' + rikjeClass + '">' + rikjeText + '</div>';
+                rikjeSection = '<hr class="section-divider"><div class="section-label">🏡 Rikje (Kita)</div><div class="' + rikjeClass + '">' + rikjeText + '</div>';
                 if (hasEarly && hasLate) {
-                    rikjeSection += '<div class="rikje-toggle">' +
-                        '<span class="toggle-label">' + (rikjeRoute === 'frueh' ? '🟢 Velgast-Route' : '🟠 Buchenhorst-Route') + '</span>' +
+                    rikjeSection += '<div class="rikje-toggle"><span class="toggle-label">' + (rikjeRoute === 'frueh' ? '🟢 Velgast-Route' : '🟠 Buchenhorst-Route') + '</span>' +
                         '<div class="toggle-switch ' + (rikjeRoute === 'spaet' ? 'late' : '') + '" onclick="toggleRikje(' + i + ')"></div></div>';
                 }
             }
+            var warn = (!hasEarly && !hasLate) ? '<div class="warning-box">⚠️ Noch keine Blöcke eingetragen</div>' : '';
 
-            return '<div class="day-card ' + (today ? 'today' : '') + '" id="day-' + i + '">' +
-                '<div class="day-header ' + (today ? 'today-header' : '') + '">' +
-                    '<div><div class="day-name">' + DAYS_DE[i] + '</div>' +
-                    '<div class="day-date">' + formatDate(date) + '</div></div>' +
-                    '<div style="display:flex;gap:6px;align-items:center;">' +
-                        (today ? '<span class="day-badge">HEUTE</span>' : '') +
-                        '<button class="day-off-btn" onclick="toggleDayOff(' + i + ')">🏖️ Frei</button>' +
-                    '</div></div>' +
-                '<div class="day-body">' +
-                    '<div class="section-label">🎒 Blöcke</div>' + kidRows +
-                    '<hr class="section-divider"><div class="section-label">🚂 Abholung</div>' +
-                    earlyBox + lateBox + rikjeSection + warningHtml +
-                '</div></div>';
+            return '<div class="day-card ' + (today ? 'today' : '') + '" id="day-' + i + '"><div class="day-header ' + (today ? 'today-header' : '') + '">' +
+                '<div><div class="day-name">' + DAYS_DE[i] + '</div><div class="day-date">' + formatDate(date) + '</div></div>' +
+                '<div style="display:flex;gap:6px;align-items:center;">' + (today ? '<span class="day-badge">HEUTE</span>' : '') +
+                '<button class="day-off-btn" onclick="toggleDayOff(' + i + ')">🏖️ Frei</button></div></div>' +
+                '<div class="day-body"><div class="section-label">🎒 Blöcke</div>' + kidRows +
+                '<hr class="section-divider"><div class="section-label">🚂 Abholung</div>' +
+                earlyBox + lateBox + rikjeSection + warn + '</div></div>';
         }
 
         function renderDayOff(i, date, today) {
-            return '<div class="day-card ' + (today ? 'today' : '') + '" id="day-' + i + '">' +
-                '<div class="day-header ' + (today ? 'today-header' : '') + '">' +
-                    '<div><div class="day-name">' + DAYS_DE[i] + '</div>' +
-                    '<div class="day-date">' + formatDate(date) + '</div></div>' +
-                    '<button class="day-off-btn active" onclick="toggleDayOff(' + i + ')">🏖️ Frei</button>' +
-                '</div>' +
-                '<div class="day-body" style="text-align:center;padding:24px;color:#a09080;">' +
-                    '<div style="font-size:2em;margin-bottom:8px;">🏖️</div>Frei / Ferien</div></div>';
+            return '<div class="day-card ' + (today ? 'today' : '') + '" id="day-' + i + '"><div class="day-header ' + (today ? 'today-header' : '') + '">' +
+                '<div><div class="day-name">' + DAYS_DE[i] + '</div><div class="day-date">' + formatDate(date) + '</div></div>' +
+                '<button class="day-off-btn active" onclick="toggleDayOff(' + i + ')">🏖️ Frei</button></div>' +
+                '<div class="day-body" style="text-align:center;padding:24px;color:#a09080;"><div style="font-size:2em;margin-bottom:8px;">🏖️</div>Frei / Ferien</div></div>';
         }
 
         function renderOverview() {
             var container = document.getElementById('overviewContainer');
             var dates = getWeekDates(currentWeekOffset);
             var html = '<div class="overview-card">';
-
             for (var i = 0; i < 5; i++) {
-                var d = dates[i];
-                var day = weekData['day' + i] || createDefaultDay();
-                var today = isToday(d);
-
+                var d = dates[i], day = weekData['day' + i] || createDefaultDay(), today = isToday(d);
                 if (day.dayOff) {
-                    html += '<div class="overview-day ' + (today ? 'today-overview' : '') + '" onclick="goToDay(' + i + ')">' +
-                        '<div class="overview-day-header"><span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span>' +
-                        '<span class="overview-chip chip-off">🏖️ Frei</span></div></div>';
+                    html += '<div class="overview-day ' + (today ? 'today-overview' : '') + '" onclick="goToDay(' + i + ')"><div class="overview-day-header"><span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span><span class="overview-chip chip-off">🏖️ Frei</span></div></div>';
                     continue;
                 }
-
                 var kids3 = [], kids4 = [];
-                KIDS.forEach(function(k) {
-                    if (day[k.toLowerCase()] === '3') kids3.push(k);
-                    if (day[k.toLowerCase()] === '4') kids4.push(k);
-                });
-
+                KIDS.forEach(function(k) { if (day[k.toLowerCase()] === '3') kids3.push(k); if (day[k.toLowerCase()] === '4') kids4.push(k); });
                 var rikjeRoute = day.rikjeRoute || 'frueh';
                 var rikjeParent = '';
                 if (kids3.length > 0 && (rikjeRoute === 'frueh' || kids4.length === 0)) rikjeParent = day.abholFrueh;
                 else if (kids4.length > 0) rikjeParent = day.abholSpaet;
-
                 var details = '';
                 if (kids3.length > 0) details += '<span class="overview-chip chip-green">🟢 ' + kids3.join(', ') + ' → ' + day.abholFrueh + ' 15:41</span> ';
                 if (kids4.length > 0) details += '<span class="overview-chip chip-orange">🟠 ' + kids4.join(', ') + ' → ' + day.abholSpaet + ' 16:36</span> ';
-                if (rikjeParent) details += '<br>🏡 Rikje → ' + rikjeParent;
-                else details += '<span style="color:#bbb;">— Noch offen —</span>';
-
-                html += '<div class="overview-day ' + (today ? 'today-overview' : '') + '" onclick="goToDay(' + i + ')">' +
-                    '<div class="overview-day-header"><span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span></div>' +
-                    '<div class="overview-details">' + details + '</div></div>';
+                var rikjeLine = rikjeParent ? '<div class="overview-rikje">🏡 Rikje → ' + rikjeParent + '</div>' : '';
+                if (!kids3.length && !kids4.length) details += '<span style="color:#bbb;">— Noch offen —</span>';
+                html += '<div class="overview-day ' + (today ? 'today-overview' : '') + '" onclick="goToDay(' + i + ')"><div class="overview-day-header"><span class="overview-day-name">' + DAYS_SHORT[i] + ' ' + formatDate(d) + (today ? ' 📍' : '') + '</span></div><div class="overview-details">' + details + rikjeLine + '</div></div>';
             }
-
             html += '</div>';
             container.innerHTML = html;
         }
 
-        function setBlock(dayIndex, kid, value) { updateDay(dayIndex, kid, value); }
-
-        function toggleAbhol(dayIndex, type) {
-            var day = weekData['day' + dayIndex];
-            if (type === 'frueh') {
-                var n = day.abholFrueh === 'Tina' ? 'Jan' : 'Tina';
-                updateDay(dayIndex, 'abholFrueh', n);
-                updateDay(dayIndex, 'abholSpaet', n === 'Tina' ? 'Jan' : 'Tina');
-            } else {
-                var n2 = day.abholSpaet === 'Tina' ? 'Jan' : 'Tina';
-                updateDay(dayIndex, 'abholSpaet', n2);
-                updateDay(dayIndex, 'abholFrueh', n2 === 'Tina' ? 'Jan' : 'Tina');
-            }
+        function setBlock(di, kid, val) { updateDay(di, kid, val); }
+        function toggleAbhol(di, type) {
+            var day = weekData['day' + di];
+            if (type === 'frueh') { var n = day.abholFrueh === 'Tina' ? 'Jan' : 'Tina'; updateDay(di, 'abholFrueh', n); updateDay(di, 'abholSpaet', n === 'Tina' ? 'Jan' : 'Tina'); }
+            else { var n2 = day.abholSpaet === 'Tina' ? 'Jan' : 'Tina'; updateDay(di, 'abholSpaet', n2); updateDay(di, 'abholFrueh', n2 === 'Tina' ? 'Jan' : 'Tina'); }
         }
-
-        function toggleRikje(dayIndex) {
-            var day = weekData['day' + dayIndex];
-            updateDay(dayIndex, 'rikjeRoute', (day.rikjeRoute || 'frueh') === 'frueh' ? 'spaet' : 'frueh');
-        }
-
-        function toggleDayOff(dayIndex) {
-            var day = weekData['day' + dayIndex];
-            updateDay(dayIndex, 'dayOff', !day.dayOff);
-        }
-
-        function goToDay(dayIndex) {
-            switchView('days');
-            setTimeout(function() {
-                var el = document.getElementById('day-' + dayIndex);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 200);
-        }
-
-        function showToast(msg) {
-            var toast = document.getElementById('toast');
-            toast.textContent = msg;
-            toast.classList.add('show');
-            setTimeout(function() { toast.classList.remove('show'); }, 2500);
-        }
+        function toggleRikje(di) { var day = weekData['day' + di]; updateDay(di, 'rikjeRoute', (day.rikjeRoute || 'frueh') === 'frueh' ? 'spaet' : 'frueh'); }
+        function toggleDayOff(di) { updateDay(di, 'dayOff', !weekData['day' + di].dayOff); }
+        function goToDay(di) { switchView('days'); setTimeout(function() { var el = document.getElementById('day-' + di); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200); }
+        function showToast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(function() { t.classList.remove('show'); }, 2500); }
 
         updateWeekLabel();
         listenToWeek();
